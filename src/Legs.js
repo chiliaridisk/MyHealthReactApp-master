@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Legs.css";
-import legsImage from "./images/legsimage.jpg";
+import armsImage from "./images/legsimage.jpg";
+import SQUATSImage from "./images/SQUATS.jpg";
+import lungesImage from "./images/lunges.jpg";
+import glutesImage from "./images/glutes.jpg"; // Εισάγετε την εικόνα εδώ
 import PieChart from "./PieChart";
 
-function Legs() {
+function Arms() {
   const [showPopup, setShowPopup] = useState(false);
   const [showResultsPopup, setShowResultsPopup] = useState(false);
   const [formData, setFormData] = useState({
@@ -17,6 +20,9 @@ function Legs() {
   const [isFormComplete, setIsFormComplete] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [chartData, setChartData] = useState([]);
+  const [showPushUpsDetails, setShowPushUpsDetails] = useState(false);
+  const [showPlankDetails, setShowPlankDetails] = useState(false);
+  const [showBodyweightDipsDetails, setShowBodyweightDipsDetails] = useState(false); // Νέα κατάσταση
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -129,17 +135,15 @@ function Legs() {
   }
 
   return (
-    <div className="legs-container">
+    <div className="arms-container">
       <button className="back-button" onClick={handleBackClick}>
         ←
       </button>
-      <div className="legs-left">
-        <h1 className="legs-title">LEGS</h1>
-        <img src={legsImage} alt="Legs" className="legs-image" />
-      </div>
-      <div className="legs-right">
-        {showPopup && (
-          <div className="popup-overlay">
+      <div className="arms-left">
+        <h1 className="arms-title">LEGS</h1>
+        <div className="image-form-container">
+          <img src={armsImage} alt="Arms" className="arms-image" />
+          {showPopup && (
             <div className="popup-content">
               <h2 className="popup-title">Complete the Form</h2>
               <form id="userForm" onSubmit={handleSubmit}>
@@ -201,11 +205,76 @@ function Legs() {
                 </button>
               </form>
             </div>
-          </div>
-        )}
+          )}
+        </div>
+      </div>
+      <div className="arms-right">
+        <h2 className="exercises-title">3 BEST LEG'S EXERCISES</h2>
+
+        <div className="exercise-container">
+          <h3 className="exercise-name">SQUATS</h3>
+          {showPushUpsDetails ? (
+            <div className="exercise-details">
+              <p>Step 1: Stand straight with feet hip-width apart..</p>
+              <p>Step 2: Engage your core muscles.</p>
+              <p>Step 3: Lower down, as if sitting in an invisible chair.</p>
+              <p> Repeat for 10 to 15 reps, for three sets</p>
+              <button onClick={() => setShowPushUpsDetails(false)} className="close-details-button">Close</button>
+            </div>
+          ) : (
+            <img
+              src={SQUATSImage}
+              alt="Push Ups"
+              className="exercise-image"
+              onClick={() => setShowPushUpsDetails(true)}
+            />
+          )}
+        </div>
+
+        <div className="exercise-container">
+          <h3 className="exercise-name">LUNGES</h3>
+          {showPlankDetails ? (
+            <div className="exercise-details">
+            <p>Stand with your feet hip-width apart, keep your back straight, your shoulders back, and your abs tight.</p>
+            <p>Scapula retracted at all times – Proud chest position and shoulder blades pinched together.</p>
+            <p>Elbows close to the body.</p>
+            <p>Full body tension.</p>
+            <p>3x12</p>
+              <button onClick={() => setShowPlankDetails(false)} className="close-details-button">Close</button>
+            </div>
+          ) : (
+            <img
+              src={lungesImage}
+              alt="Plank"
+              className="exercise-image"
+              onClick={() => setShowPlankDetails(true)}
+            />
+          )}
+        </div>
+
+        <div className="exercise-container">
+          <h3 className="exercise-name">GLUTES BRIDGE</h3>
+          {showBodyweightDipsDetails ? (
+           <div className="exercise-details">
+           <p>1.Lie on your back with your hands by your sides and your knees bent.</p>
+           <p>2.Lift your hips off the mat, while keeping your back straight, and pause for 1 second..</p>
+           <p>4x15</p>
+              <button onClick={() => setShowBodyweightDipsDetails(false)} className="close-details-button">Close</button>
+            </div>
+          ) : (
+            <img
+            src={glutesImage}
+              alt="Bodyweight Dips"
+              className="exercise-image"
+              onClick={() => setShowBodyweightDipsDetails(true)}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
 }
 
-export default Legs;
+
+
+export default Arms; 
