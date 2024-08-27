@@ -1,0 +1,179 @@
+.arms-container {
+  display: flex;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+  position: relative;
+  overflow: hidden; /* Αποτρέπει την εμφάνιση κάθετης μπάρας κύλισης */
+}
+
+.arms-left {
+  width: 40%; /* Μειώσαμε το πλάτος της αριστερής πλευράς */
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.arms-right {
+  width: 60%; /* Αυξήσαμε το πλάτος της δεξιάς πλευράς */
+  display: flex;
+  flex-direction: column; /* Άλλαξα σε στήλη για να τοποθετηθούν οι ασκήσεις η μία κάτω από την άλλη */
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  position: relative;
+}
+
+.arms-title {
+  font-size: 3em;
+  color: #ff6600;
+  font-family: "Roboto", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 102, 0, 0.8);
+  animation: fadeInScale 1s ease-out;
+  font-style: oblique;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.arms-image {
+  max-width: 45%; /* Μικρύναμε το μέγεθος της εικόνας */
+  height: auto;
+  margin-right: 20px; /* Πρόσθεσε απόσταση μεταξύ της εικόνας και της φόρμας */
+  border-radius: 10px;
+}
+
+.image-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Ευθυγραμμίσαμε τη φόρμα δίπλα στην εικόνα */
+}
+
+.popup-overlay {
+  background-color: rgba(0, 0, 0, 0.9); /* Μείναμε σε ημιδιαφανές φόντο για να μην καλύπτει τίποτα */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  max-width: 60%;
+  color: #fff;
+  border: 2px solid #ff6600;
+}
+
+.popup-title {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #ff6600;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+input,
+select {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background: #222;
+  color: #fff;
+}
+
+button {
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button:hover {
+  background: #e55d00;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2em;
+  z-index: 1000;
+}
+
+.back-button:hover {
+  background: #e55d00;
+}
+
+.exercises-title {
+  font-size: 2em;
+  color: #ff6600;
+  margin-bottom: 20px;
+}
+
+.exercise-container {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.exercise-name {
+  font-size: 1.5em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.exercise-image {
+  max-width: 210px; /* Ορισμός πλάτους για τις εικόνες των ασκήσεων */
+  height: auto;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.exercise-details {
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.close-details-button {
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 10px;
+}
+
+.close-details-button:hover {
+  background: #e55d00;
+}
