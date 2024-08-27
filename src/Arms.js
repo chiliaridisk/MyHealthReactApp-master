@@ -23,14 +23,30 @@ function Arms() {
   const [showPushUpsDetails, setShowPushUpsDetails] = useState(false);
   const [showPlankDetails, setShowPlankDetails] = useState(false);
   const [showBodyweightDipsDetails, setShowBodyweightDipsDetails] = useState(false); // Νέα κατάσταση
+  const [showHelpPopup, setShowHelpPopup] = useState(false); // Νέα κατάσταση
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const popupTimer = setTimeout(() => {
       setShowPopup(true);
     }, 1000);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(popupTimer);
+  }, []);
+
+  useEffect(() => {
+    const helpTimer = setTimeout(() => {
+      setShowHelpPopup(true);
+    }, 2000); // Εμφάνιση βοήθειας μετά από 2 δευτερόλεπτα
+
+    const hideHelpTimer = setTimeout(() => {
+      setShowHelpPopup(false);
+    }, 7000); // Απόκρυψη βοήθειας μετά από 5 δευτερόλεπτα
+
+    return () => {
+      clearTimeout(helpTimer);
+      clearTimeout(hideHelpTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -210,8 +226,6 @@ function Arms() {
       </div>
       <div className="arms-right">
         <h2 className="exercises-title">3 BEST ARM'S EXERCISES</h2>
-        
-
         <div className="exercise-container">
           <h3 className="exercise-name">PUSH UPS</h3>
           {showPushUpsDetails ? (
@@ -254,8 +268,6 @@ function Arms() {
           )}
         </div>
 
-       
-
         <div className="exercise-container">
           <h3 className="exercise-name">Bodyweight Dips</h3>
           {showBodyweightDipsDetails ? (
@@ -273,21 +285,17 @@ function Arms() {
               alt="Bodyweight Dips"
               className="exercise-image"
               onClick={() => setShowBodyweightDipsDetails(true)}
-
-          
             />
           )}
-            </div>
+        </div>
+        {showHelpPopup && (
+          <div className="help-popup">
+            <p>Click on images</p>
+          </div>
+        )}
       </div>
     </div>
-
-    
-
-    
-
   );
 }
 
-
-
-export default Arms; 
+export default Arms;
