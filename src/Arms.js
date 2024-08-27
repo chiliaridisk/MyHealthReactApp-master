@@ -210,6 +210,7 @@ function Arms() {
       </div>
       <div className="arms-right">
         <h2 className="exercises-title">3 BEST ARM'S EXERCISES</h2>
+        
 
         <div className="exercise-container">
           <h3 className="exercise-name">PUSH UPS</h3>
@@ -253,6 +254,8 @@ function Arms() {
           )}
         </div>
 
+       
+
         <div className="exercise-container">
           <h3 className="exercise-name">Bodyweight Dips</h3>
           {showBodyweightDipsDetails ? (
@@ -270,11 +273,18 @@ function Arms() {
               alt="Bodyweight Dips"
               className="exercise-image"
               onClick={() => setShowBodyweightDipsDetails(true)}
+
+          
             />
           )}
-        </div>
+            </div>
       </div>
     </div>
+
+    
+
+    
+
   );
 }
 
