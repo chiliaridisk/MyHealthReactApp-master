@@ -41,7 +41,7 @@ function Arms() {
 
     const hideHelpTimer = setTimeout(() => {
       setShowHelpPopup(false);
-    }, 5000); // Απόκρυψη βοήθειας μετά από 5 δευτερόλεπτα
+    }, 5500); // Απόκρυψη βοήθειας μετά από 5 δευτερόλεπτα
 
     return () => {
       clearTimeout(helpTimer);
