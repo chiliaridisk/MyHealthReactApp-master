@@ -4,7 +4,7 @@
   background-color: #000;
   color: #fff;
   position: relative;
-  overflow: hidden; /* Αποτρέπει την εμφάνιση κάθετης μπάρας κύλισης */
+  overflow: auto; /* Επέτρεψε το scrolling αν χρειάζεται */
 }
 
 .arms-left {
@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+  box-sizing: border-box; /* Εξασφαλίζει ότι το padding δεν επηρεάζει το συνολικό πλάτος */
 }
 
 .arms-right {
@@ -26,6 +27,8 @@
   justify-content: flex-start;
   padding: 20px;
   position: relative;
+  overflow: auto; /* Επέτρεψε το scrolling αν χρειάζεται */
+  box-sizing: border-box; /* Εξασφαλίζει ότι το padding δεν επηρεάζει το συνολικό πλάτος */
 }
 
 .arms-title {
@@ -58,7 +61,7 @@
 .image-form-container {
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* Ευθυγραμμίσαμε τη φόρμα δίπλα στην εικόνα */
+  justify-content: flex-start; /* Ευθυγράμμισε τη φόρμα δίπλα στην εικόνα */
 }
 
 .popup-overlay {
@@ -69,6 +72,10 @@
   max-width: 60%;
   color: #fff;
   border: 2px solid #ff6600;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  transform: translate(-20%, -20%);
 }
 
 .popup-title {
@@ -142,9 +149,12 @@ button:hover {
 }
 
 .exercise-name {
-  font-size: 1.5em;
-  color: #fff;
-  margin-bottom: 10px;
+  color: #9b8b80;
+  font-family: "Roboto", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 102, 0, 0.8);
+  animation: fadeInScale 1s ease-out;
+  font-style: oblique;
+  font-size: 30px;
 }
 
 .exercise-image {
@@ -161,6 +171,7 @@ button:hover {
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   position: relative;
+  border: 2px solid #ff6600; /* Πορτοκαλί περίγραμμα για τα πλαίσια με κείμενα */
 }
 
 .close-details-button {
@@ -175,5 +186,22 @@ button:hover {
 }
 
 .close-details-button:hover {
+  background: #e55d00;
+}
+
+.close-results-button {
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.close-results-button:hover {
   background: #e55d00;
 }
