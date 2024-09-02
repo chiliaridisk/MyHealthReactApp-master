@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Chest.css";
-import armsImage from "./images/gymman.jpg";
-import pushUpsImage from "./images/push_ups.jpg";
-import plankImage from "./images/plank.jpg";
-import bodyweightDipsImage from "./images/bodyw.jpg"; // Εισάγετε την εικόνα εδώ
+import armsImage from "./images/chest2.jpg";
+import pushUpsImage from "./images/decline.png";
+import plankImage from "./images/philio.jpeg";
+import bodyweightDipsImage from "./images/spiderman.jpg"; // Εισάγετε την εικόνα εδώ
 import PieChart from "./PieChart";
 
 function Chest() {
@@ -227,14 +227,12 @@ function Chest() {
       <div className="arms-right">
         <h2 className="exercises-title">3 BEST CHEST EXERCISES</h2>
         <div className="exercise-container">
-          <h3 className="exercise-name">PUSH UPS</h3>
+          <h3 className="exercise-name">Decline Push-ups</h3>
           {showPushUpsDetails ? (
             <div className="exercise-details">
-              <p>1. Hands should be slightly outside shoulder-width apart at chest level.</p>
-              <p>2. Feet should be hip-width apart and parallel to each other—not turned inward or outward.</p>
-              <p>3. Hips should be in line with the shoulders, and the lower back should have a neutral curve—not completely flat, but not overly curved either. To assist with keeping proper lower back alignment, slim your waistline by trying to pull your belly button in and tightening your abdominal muscles.</p>
-              <p>4. The head should be positioned so the ears are in line with the shoulders. They should not drop down toward the floor or looking up in front of the body.</p>
-              <p>Set 4x20</p>
+              <p>1.Get your feet higher than your hands, then your push-ups are going to be trickier..</p>
+              <p>keep your legs and back straight, with your hands on the floor and your feet raised.</p>
+              <p>Set 2x20</p>
               <button onClick={() => setShowPushUpsDetails(false)} className="close-details-button">Close</button>
             </div>
           ) : (
@@ -248,14 +246,13 @@ function Chest() {
         </div>
 
         <div className="exercise-container">
-          <h3 className="exercise-name">PLANK</h3>
+          <h3 className="exercise-name">Plyometric Push-ups</h3>
           {showPlankDetails ? (
             <div className="exercise-details">
-              <p>1. Lay flat on the floor, on your stomach.</p>
-              <p>2. Lift yourself onto your forearms and toes, keeping your body in a straight line from head to heels.</p>
-              <p>3. Tighten your core muscles, and hold this position for as long as possible.</p>
-              <p>4. Breathe steadily throughout the exercise.</p>
-              <p>Set 4x60sec</p>
+              <p>1.Start in a high plank, or at the top of pushup position. Your torso should be in a straight line, core engaged .</p>
+              <p>2.As you push up, do so with enough force for your hands to leave the ground.</p>
+              <p>3.Land lightly on the ground, moving into your next rep immediately.</p>
+              <p>Set 4x15</p>
               <button onClick={() => setShowPlankDetails(false)} className="close-details-button">Close</button>
             </div>
           ) : (
@@ -269,14 +266,13 @@ function Chest() {
         </div>
 
         <div className="exercise-container">
-          <h3 className="exercise-name">BODYWEIGHT DIPS</h3> {/* Νέα άσκηση */}
+          <h3 className="exercise-name">Spiderman PushUps</h3> {/* Νέα άσκηση */}
           {showBodyweightDipsDetails ? (
             <div className="exercise-details">
-              <p>1. Position yourself at the edge of a bench or chair, with your hands gripping the edge beside your hips.</p>
-              <p>2. Slide your hips off the bench, and lower your body by bending your elbows.</p>
-              <p>3. Push back up to the starting position by straightening your arms.</p>
-              <p>4. Keep your body close to the bench throughout the exercise.</p>
-              <p>Set 4x15</p>
+              <p>1.Place your hands under the shoulders and extend your legs back.</p>
+              <p>2.Start bending your elbows as you bring your left knee to the left shoulder.</p>
+              <p>3. Push up and return to the starting position.</p>
+             <p>Set 3x15</p>
               <button
                 onClick={() => setShowBodyweightDipsDetails(false)}
                 className="close-details-button"
