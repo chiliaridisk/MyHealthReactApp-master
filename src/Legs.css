@@ -205,3 +205,39 @@ button:hover {
 .close-results-button:hover {
   background: #e55d00;
 }
+
+
+.help-popup {
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border: 2px solid #ff6600;
+  font-size: 1.2em;
+  text-align: center;
+  animation: slideIn 1s ease-out, fadeOut 1s ease-out 5s;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

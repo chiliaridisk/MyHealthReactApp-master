@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Legs.css";
+import "./Arms.css";
 import armsImage from "./images/legsimage.jpg";
-import SQUATSImage from "./images/SQUATS.jpg";
+import squatsImage from "./images/SQUATS.jpg";
 import lungesImage from "./images/lunges.jpg";
 import glutesImage from "./images/glutes.jpg"; // Εισάγετε την εικόνα εδώ
 import PieChart from "./PieChart";
@@ -23,14 +23,30 @@ function Arms() {
   const [showPushUpsDetails, setShowPushUpsDetails] = useState(false);
   const [showPlankDetails, setShowPlankDetails] = useState(false);
   const [showBodyweightDipsDetails, setShowBodyweightDipsDetails] = useState(false); // Νέα κατάσταση
+  const [showHelpPopup, setShowHelpPopup] = useState(false); // Νέα κατάσταση
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const popupTimer = setTimeout(() => {
       setShowPopup(true);
     }, 1000);
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(popupTimer);
+  }, []);
+
+  useEffect(() => {
+    const helpTimer = setTimeout(() => {
+      setShowHelpPopup(true);
+    }, 2000); // Εμφάνιση βοήθειας μετά από 2 δευτερόλεπτα
+
+    const hideHelpTimer = setTimeout(() => {
+      setShowHelpPopup(false);
+    }, 5500); // Απόκρυψη βοήθειας μετά από 5 δευτερόλεπτα
+
+    return () => {
+      clearTimeout(helpTimer);
+      clearTimeout(hideHelpTimer);
+    };
   }, []);
 
   useEffect(() => {
@@ -210,20 +226,19 @@ function Arms() {
       </div>
       <div className="arms-right">
         <h2 className="exercises-title">3 BEST LEG'S EXERCISES</h2>
-
         <div className="exercise-container">
           <h3 className="exercise-name">SQUATS</h3>
           {showPushUpsDetails ? (
             <div className="exercise-details">
-              <p>Step 1: Stand straight with feet hip-width apart..</p>
-              <p>Step 2: Engage your core muscles.</p>
-              <p>Step 3: Lower down, as if sitting in an invisible chair.</p>
-              <p> Repeat for 10 to 15 reps, for three sets</p>
+              <p>1. Stand straight with feet hip-width apart</p>
+              <p>2. Engage your core muscles.</p>
+              <p>3. Lower down, as if sitting in an invisible chair</p>
+              <p>Set 3 x 20</p>
               <button onClick={() => setShowPushUpsDetails(false)} className="close-details-button">Close</button>
             </div>
           ) : (
             <img
-              src={SQUATSImage}
+              src={squatsImage}
               alt="Push Ups"
               className="exercise-image"
               onClick={() => setShowPushUpsDetails(true)}
@@ -235,11 +250,10 @@ function Arms() {
           <h3 className="exercise-name">LUNGES</h3>
           {showPlankDetails ? (
             <div className="exercise-details">
-            <p>Stand with your feet hip-width apart, keep your back straight, your shoulders back, and your abs tight.</p>
-            <p>Scapula retracted at all times – Proud chest position and shoulder blades pinched together.</p>
-            <p>Elbows close to the body.</p>
-            <p>Full body tension.</p>
-            <p>3x12</p>
+              <p>Get into pushup position. ...</p>
+              <p>Stand with your feet hip-width apart, keep your back straight, your shoulders back, and your abs tight..</p>
+              <p>Take a step forward and slowly bend both knees, until your back knee is just above the floor.</p>
+              <p>3 x 12 </p>
               <button onClick={() => setShowPlankDetails(false)} className="close-details-button">Close</button>
             </div>
           ) : (
@@ -253,28 +267,32 @@ function Arms() {
         </div>
 
         <div className="exercise-container">
-          <h3 className="exercise-name">GLUTES BRIDGE</h3>
+          <h3 className="exercise-name">GLUTES</h3>
           {showBodyweightDipsDetails ? (
-           <div className="exercise-details">
-           <p>1.Lie on your back with your hands by your sides and your knees bent.</p>
-           <p>2.Lift your hips off the mat, while keeping your back straight, and pause for 1 second..</p>
-           <p>4x15</p>
+            <div className="exercise-details">
+              <p>Lie flat on your back with your knees bent and feet flat on the floor, hip-width apart..</p>
+              <p>Place your arms at your sides with your palms facing down.</p>
+              <p>Full body tension.</p>
+              <p>4 x 15</p>
               <button onClick={() => setShowBodyweightDipsDetails(false)} className="close-details-button">Close</button>
             </div>
           ) : (
             <img
-            src={glutesImage}
+              src={glutesImage}
               alt="Bodyweight Dips"
               className="exercise-image"
               onClick={() => setShowBodyweightDipsDetails(true)}
             />
           )}
         </div>
+        {showHelpPopup && (
+          <div className="help-popup">
+            <p>Click on images</p>
+          </div>
+        )}
       </div>
     </div>
   );
 }
 
-
-
-export default Arms; 
+export default Arms;
